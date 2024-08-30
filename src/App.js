@@ -29,7 +29,8 @@ const App = () => {
     formData.append('libraries', details.libraries);
 
     try {
-      const response = await axios.post('http://localhost:3001/generate-component', formData, {
+      const url = process.env.INTERNAL_BACKEND_URL || 'http://localhost:3001';
+      const response = await axios.post(url+'/generate-component', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setGeneratedComponent(response.data.component);
@@ -51,7 +52,7 @@ const App = () => {
           <p className="text-gray-600 mb-4">Upload a PNG or JPEG image of the UI component you want to generate code for.</p>
           <ImageUploader onImageUpload={handleImageUpload} />
         </div>
-        
+
         {/* Vertical Divider */}
         <div className="hidden md:block w-px bg-gray-200 mx-4"></div>
 
