@@ -30,7 +30,7 @@ const App = () => {
     formData.append('libraries', details.libraries);
 
     try {
-
+      console.log(url);
       const response = await axios.post(url+'/generate-component', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
