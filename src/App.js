@@ -4,6 +4,7 @@ import ImageUploader from './components/ImageUploader';
 import DetailsForm from './components/DetailsForm';
 import CodeDisplay from './components/CodeDisplay';
 import LoadingBar from './components/LoadingBar';
+const url = process.env.INTERNAL_BACKEND_URL || 'http://localhost:3001';
 const App = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,7 +30,7 @@ const App = () => {
     formData.append('libraries', details.libraries);
 
     try {
-      const url = process.env.INTERNAL_BACKEND_URL || 'http://localhost:3001';
+
       const response = await axios.post(url+'/generate-component', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
