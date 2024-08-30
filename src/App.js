@@ -5,6 +5,7 @@ import DetailsForm from './components/DetailsForm';
 import CodeDisplay from './components/CodeDisplay';
 import LoadingBar from './components/LoadingBar';
 const url = process.env.REACT_APP_INTERNAL_BACKEND_URL || 'http://localhost:3001';
+const API_KEY = process.env.REACT_APP_BACKEND_API_KEY;
 const App = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -33,7 +34,9 @@ const App = () => {
       console.log(url);
       console.log(process.env)
       const response = await axios.post(url+'/generate-component', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
+        headers: { 'Content-Type': 'multipart/form-data' ,
+          'X-API-Key': API_KEY
+        }
       });
       setGeneratedComponent(response.data.component);
     } catch (error) {
