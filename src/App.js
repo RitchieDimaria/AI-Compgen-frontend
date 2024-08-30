@@ -31,6 +31,7 @@ const App = () => {
 
     try {
       console.log(url);
+      console.log(process.env)
       const response = await axios.post(url+'/generate-component', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
