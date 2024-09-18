@@ -4,6 +4,7 @@ import ImageUploader from './components/ImageUploader';
 import DetailsForm from './components/DetailsForm';
 import CodeDisplay from './components/CodeDisplay';
 import LoadingBar from './components/LoadingBar';
+import Header from './components/Header';
 const url = process.env.REACT_APP_INTERNAL_BACKEND_URL || 'http://localhost:3001';
 const API_KEY = process.env.REACT_APP_BACKEND_API_KEY;
 const App = () => {
@@ -49,7 +50,9 @@ const App = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-12">UI Component Generator</h1>
+      <Header />
+
+      <h1 className="text-4xl font-bold text-center mb-12 mt-20">UI Component Generator</h1>
       
       <div className="flex flex-col md:flex-row gap-12">
         <div className="md:w-1/2">
